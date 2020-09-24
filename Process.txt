@@ -1,0 +1,11 @@
+New STP Data Creation
+
+java -Xmx40g -XX:+UseParallelGC -cp ClearnlpSA/*;ClearnlpSA SA2015.SABatchProcessor -project "C:\working\stp-data-creation\stpDataCreation.vip" -targetentitytype TICKER -ignorerelevance -disableclassifier -disablesentimentrules -disablelimits -local 3 "C:\Users\Opensesafi\Documents\VIPProjects\STP Corpus\corp_1782.csv" "C:\Users\Opensesafi\Documents\VIPProjects\STP_5-9\Results\corp_xmlresults.csv"
+
+python writeET.py --document "C:\Users\Aniket\Documents\Corpus Files\Results\1.31.2019\corp_xmlresults.csv" --tag "NEW"
+
+ConvertXMLtoFinalCSV.exe -numrelcolumns 0 -showeventtargetcolumn -showextractioncolumn -showpolaritycolumn -noshowslotscolumns -removeduplicates "C:\Users\Aniket\Documents\Corpus Files\Results\1.29.2019\eventtypesXX.txt" "C:\working\amenity-theme-modelling\SecondProject_Files\FilteredCompanies (2).txt" < "C:\Users\Aniket\Documents\Corpus Files\Results\1.29.2019\corp_xmlresults.csv" > "C:\Users\Aniket\Documents\Corpus Files\Results\1.29.2019\corp_xmlresults_x.csv"
+
+python conversionMacro.py "C:\Users\Aniket\Documents\Corpus Files\Results\2.12.2019\corp_xmlresults_x.csv"
+
+python scoreOSFIdata_with_text_extraction.py "C:\Users\Aniket\Documents\Corpus Files\Results\2.12.2019\corp_xmlresults_x_final.csv" "Batch"
